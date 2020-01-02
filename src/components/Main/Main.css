@@ -1,0 +1,19 @@
+.container {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.button {
+    color: white;
+    background-color: deepskyblue;
+}
+.list-element {
+    display: flex;
+    flex-direction: row;
+}
+.plus { display: none; }
+.list-element:hover > span {
+    display: block;
+    font-weight: bolder;
+}
