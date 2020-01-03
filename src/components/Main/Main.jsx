@@ -1,25 +1,28 @@
 import React from "react";
 import './Main.css';
+import Cityes from './Cityes';
 
-const cityList = [
-  "Абакан",
-  "Артем",
-  "Азов",
-  "Москва",
-  "Санкт-Петербург",
-  "Екатеринбург",
-  "Владивосток",
-  "Березовск",
-  "Тагил",
-  "Каменск-Уральский",
-  "Кушва",
-  "Сабик",
-  "Берлога",
-  "Шаля",
-  "Курган",
-  "Нягань",
-  "Саратов"
-];
+const cityList = Cityes.data;
+
+// const cityList = [
+//   "Абакан",
+//   "Артем",
+//   "Азов",
+//   "Москва",
+//   "Санкт-Петербург",
+//   "Екатеринбург",
+//   "Владивосток",
+//   "Березовск",
+//   "Тагил",
+//   "Каменск-Уральский",
+//   "Кушва",
+//   "Сабик",
+//   "Берлога",
+//   "Шаля",
+//   "Курган",
+//   "Нягань",
+//   "Саратов"
+// ];
 
 class Main extends React.Component {
   constructor(props) {
@@ -42,7 +45,9 @@ class Main extends React.Component {
   cityDelete = city => {
     this.setState({cityes: [...this.state.cityes.filter(element => element !== city)]});
   };
-
+  // componentDidMount() {
+  //   console.log(data);
+  // }
   render() {
     return (
       <>
@@ -68,7 +73,9 @@ class Main extends React.Component {
             {this.state.cityes.map(element => (
               <p className='choice-list'
                 onClick={() => this.cityDelete(element)}
-              >{element}</p>
+              >
+                {element}
+              </p>
             ))}
           </div>
         </div>
