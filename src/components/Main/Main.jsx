@@ -4,26 +4,6 @@ import Cityes from './Cityes';
 
 const cityList = Cityes.data;
 
-// const cityList = [
-//   "Абакан",
-//   "Артем",
-//   "Азов",
-//   "Москва",
-//   "Санкт-Петербург",
-//   "Екатеринбург",
-//   "Владивосток",
-//   "Березовск",
-//   "Тагил",
-//   "Каменск-Уральский",
-//   "Кушва",
-//   "Сабик",
-//   "Берлога",
-//   "Шаля",
-//   "Курган",
-//   "Нягань",
-//   "Саратов"
-// ];
-
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -40,14 +20,22 @@ class Main extends React.Component {
   };
   cityAdd = city => {
     if (this.state.cityes.includes(city)) { return; }
-    this.setState({value: '', cityes: [...this.state.cityes, city].sort()});
+    const newCityList = [...this.state.cityes, city].sort();
+    this.setState({value: '', cityes: newCityList});
+    // console.log([...this.state.cityes, city].sort());
+    localStorage.setItem('cityes', JSON.stringify(newCityList));
   };
   cityDelete = city => {
-    this.setState({cityes: [...this.state.cityes.filter(element => element !== city)]});
+    const newCityList = [...this.state.cityes.filter(element => element !== city)];
+    this.setState({cityes: newCityList});
+    localStorage.setItem('cityes', JSON.stringify(newCityList));
   };
-  // componentDidMount() {
-  //   console.log(data);
-  // }
+  componentDidMount() {
+    // console.log(JSON.parse(localStorage.cityes));
+    if (this.state.cityes.length > 0) { return; }
+    const cityesFromStorage = JSON.parse(localStorage.cityes);
+    this.setState({'cityes': cityesFromStorage});
+  }
   render() {
     return (
       <>
