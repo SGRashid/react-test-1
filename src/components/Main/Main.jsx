@@ -58,11 +58,15 @@ class Main extends React.Component {
             }
           </div>
           <div className='choice'>
+            <p><b>Выбрано:</b></p>
             {this.state.cityes.map(element => (
-              <p className='choice-list'
-                onClick={() => this.cityDelete(element)}
+              <p className='choice-list-element'
+                // onClick={() => this.cityDelete(element)}
               >
                 {element}
+                <span className='x'
+                      onClick={() => this.cityDelete(element)}
+                >&nbsp;&#10006;</span>
               </p>
             ))}
           </div>

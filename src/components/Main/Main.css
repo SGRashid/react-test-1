@@ -7,13 +7,22 @@
 .button {
     color: white;
     background-color: deepskyblue;
+    cursor: pointer;
 }
-.list-element {
-    display: flex;
-    flex-direction: row;
-}
+.list-element { cursor: pointer; }
 .plus { display: none; }
 .list-element:hover > span {
-    display: block;
+    display: inline;
     font-weight: bolder;
 }
+.choice {
+    width: 20%;
+    line-height: 2;
+}
+.x {
+    color: red;
+    font-weight: bolder;
+    display: none;
+    cursor: pointer;
+}
+.choice-list-element:hover > span { display: inline; }
