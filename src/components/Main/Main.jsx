@@ -1,6 +1,8 @@
 import React from 'react';
 import './Main.css';
 import Cityes from './Cityes';
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const cityList = Cityes.data;
 
@@ -49,6 +51,7 @@ class Main extends React.Component {
   render() {
     return (
       <>
+        <Header />
         <div className='container'>
           <div className='city-list'>
             <input type="search" value={this.state.value} onChange={this.handleChange} />
@@ -93,6 +96,7 @@ class Main extends React.Component {
             </div>
           </div>
         </div>
+        <Footer />
       </>
     );
   }
